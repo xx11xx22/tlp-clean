@@ -1,0 +1,9 @@
+tarot\model\CardReading.class
+tarot\controller\TarotGameController.class
+tarot\data\TarotCardData.class
+tarot\Main.class
+tarot\service\TarotGameService.class
+tarot\listener\GameInitializationListener.class
+tarot\SimpleTarotTest.class
+tarot\model\TarotCard.class
+tarot\model\TarotCard$CardType.class

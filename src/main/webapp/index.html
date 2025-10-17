@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 移除viewport元标签，专注于桌面体验 -->
+        <title>塔罗解惑</title>
+        <link rel="stylesheet" href="css/tarot-styles.css" />
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+                <text y='.9em' font-size='90'>🔮</text></svg>"/>
+    </head>
+    <body>
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-message" id="loadingMessage">
+                    正在加载...
+                </div>
+            </div>
+        </div>
+
+        <!-- 错误提示 -->
+        <div class="error-message" id="errorMessage">
+            <!-- 错误信息将动态填充 -->
+        </div>
+
+        <div class="container">
+            <!-- 标题 -->
+            <header class="header">
+                <h1 class="main-title gold-text">塔罗解惑</h1>
+            </header>
+
+            <!-- 抽牌区域 -->
+            <div class="card-selection-section" id="cardSelectionSection">
+                <h2 class="gold-text">请选择3张牌</h2>
+                <div class="instruction gold-shadow">
+                    已选择 <span id="selectedCount">0</span>/3 张牌
+                </div>
+
+                <!-- 卡牌放置区域（顶部） -->
+                <div class="card-drop-zones" id="cardDropZones">
+                    <div class="drop-zone" data-position="0">
+                        <div class="drop-zone-label">过去/根源</div>
+                        <div class="drop-zone-placeholder">拖拽卡牌到此</div>
+                    </div>
+                    <div class="drop-zone" data-position="1">
+                        <div class="drop-zone-label">现在/情况</div>
+                        <div class="drop-zone-placeholder">拖拽卡牌到此</div>
+                    </div>
+                    <div class="drop-zone" data-position="2">
+                        <div class="drop-zone-label">未来/建议</div>
+                        <div class="drop-zone-placeholder">拖拽卡牌到此</div>
+                    </div>
+                </div>
+
+                <!-- 提示文字 -->
+                <p class="subtitle" id="instructionText">
+                    心中想着您的问题<br />不要犹豫凭直觉选择三张牌
+                </p>
+
+                <!-- 卡牌展示区域（底部） -->
+                <div class="card-deck" id="cardDeck">
+                    <!-- 动态生成卡牌 -->
+                </div>
+            </div>
+
+            <!-- 结果展示区域 -->
+            <div
+                class="result-section"
+                id="resultSection"
+                style="display: none"
+            >
+                <h2>解惑结果</h2>
+
+                <!-- 抽到的三张牌 -->
+                <div class="selected-cards" id="selectedCards">
+                    <!-- 动态生成选中的牌 -->
+                </div>
+
+                <!-- 解读内容 -->
+                <div class="reading-content" id="readingContent">
+                    <!-- 动态生成解读 -->
+                </div>
+
+                <div class="result-buttons">
+                    <button class="btn btn-primary" id="againBtn">
+                        再次占卜
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/tarot-game.js"></script>
+    </body>
+</html>

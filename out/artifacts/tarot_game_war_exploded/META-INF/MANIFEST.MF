@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Build-Jdk: Oracle OpenJDK 25
+Built-By: Apache Tomcat 11.0.11
+Implementation-Version: 1.0.0
+

@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tarot-game:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/tarot_game_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="tarot-game" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.18.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.18.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.18.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.16" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.5.8" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.5.8" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web2" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web3" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web4" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web5" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web6" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web7" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web8" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web9" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web10" />
+      <element id="javaee-facet-resources" facet="tarot-game/web/Web11" />
+    </root>
+  </artifact>
+</component>

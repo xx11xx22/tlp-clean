@@ -1,0 +1,52 @@
+16-Oct-2025 18:04:33.521 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 18:04:33.994 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 18:04:33.994 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 18:04:33.995 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3a9b41a0')
+16-Oct-2025 18:07:00.237 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 18:07:00.742 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 18:07:00.742 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 18:07:00.743 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2f09e6b2')
+16-Oct-2025 22:26:01.812 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:26:02.315 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:26:02.315 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:26:02.316 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4703c998')
+16-Oct-2025 22:31:24.758 严重 [Catalina-utility-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:31:26.054 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:31:26.535 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:31:26.535 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:31:26.536 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4245bf68')
+16-Oct-2025 22:31:26.638 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+16-Oct-2025 22:31:26.638 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+16-Oct-2025 22:31:56.542 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:31:57.035 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:31:57.035 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:31:57.036 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4703c998')
+16-Oct-2025 22:35:58.519 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:35:59.153 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:35:59.154 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:35:59.155 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@52621501')
+16-Oct-2025 22:42:57.140 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:42:57.613 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:42:57.613 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:42:57.614 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3a9b41a0')
+16-Oct-2025 22:47:39.941 严重 [Catalina-utility-2] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:48:06.693 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 22:48:07.174 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 22:48:07.174 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 22:48:07.175 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4703c998')
+16-Oct-2025 23:00:26.972 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 23:00:27.461 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 23:00:27.461 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 23:00:27.462 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2776fd8f')
+16-Oct-2025 23:05:19.386 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 23:05:19.876 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 23:05:19.877 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 23:05:19.878 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@7f0d8eff')
+16-Oct-2025 23:06:49.551 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 23:06:50.063 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 23:06:50.063 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 23:06:50.065 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@e0d1dc4')
+16-Oct-2025 23:28:51.284 严重 [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods 对于URL模式为[/api/*]的安全约束，只包括HTTP方法[POST GET OPTIONS]。所有其他方法都没有涉及。
+16-Oct-2025 23:28:52.623 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+16-Oct-2025 23:28:52.624 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+16-Oct-2025 23:28:52.625 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@358ab600')

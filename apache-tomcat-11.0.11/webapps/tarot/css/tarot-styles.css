@@ -1,0 +1,626 @@
+:root {
+    /* 主题色 */
+    --primary-color: #ffd700; /* 金色 */
+    --secondary-color: #81269d; /* 紫色 */
+
+    /* 背景色 */
+    --bg-primary: #0b0f2a;
+    --bg-secondary: #050816;
+    --bg-dark: #02040a;
+    --bg-card: #4a0e4e;
+    --bg-card-alt: #2a0845;
+
+    /* 文本色 */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 215, 0, 0.7);
+    --text-card: #333333;
+    --text-card-title: #4a0e4e;
+
+    /* 尺寸 */
+    --card-width: 80px;
+    --card-height: 120px;
+    --card-width-large: 100px;
+    --card-height-large: 150px;
+    --drop-zone-width: 120px;
+    --drop-zone-height: 180px;
+    --border-radius: 15px;
+    --border-radius-small: 10px;
+    --border-radius-large: 25px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+
+    /* 动画持续时间 */
+    --transition-fast: 0.3s;
+    --transition-normal: 0.5s;
+    --transition-slow: 0.8s;
+
+    /* 阴影 */
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+    /* 卡牌显示数量 */
+    --card-display-count: 20;
+    --card-overlap-ratio: 0.5;
+    --card-visible-width: calc(
+        var(--card-width) * (1 - var(--card-overlap-ratio))
+    );
+    --card-total-display-width: calc(
+        var(--card-visible-width) * var(--card-display-count)
+    );
+}
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    background: radial-gradient(
+        1200px 800px at 50% 10%,
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 60%,
+        var(--bg-dark) 100%
+    );
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 30, 0.2) 0%,
+        rgba(10, 10, 30, 0.4) 100%
+    );
+}
+
+/* 通用样式类 - 金色文字效果 */
+.gold-text {
+    background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        #ffb347,
+        var(--primary-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 标题区域 */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.main-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* 抽牌区域 */
+.card-selection-section {
+    text-align: center;
+    animation: fadeIn var(--transition-fast) ease-out;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--border-radius-large);
+    margin: var(--spacing-md) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-selection-section h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.instruction {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* 提示文字样式 - 卡牌上方，三个框下方 */
+#instructionText {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: var(--primary-color);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* 卡堆样式 */
+.card-deck {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto 10px; /* 减少底部外边距 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    perspective: 1000px;
+    order: 1; /* 放在放置区下面 */
+}
+
+/* 卡牌基础样式 */
+.card-back {
+    width: var(--card-width);
+    height: var(--card-height);
+    background-image: url('../images/卡牌背面.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    position: absolute;
+    cursor: grab;
+    transition: transform var(--transition-fast) ease,
+        box-shadow var(--transition-fast) ease,
+        border-color var(--transition-fast) ease;
+    box-shadow: var(--shadow-sm);
+    transform-origin: bottom center;
+    user-select: none;
+    will-change: transform;
+}
+
+.card-back:active {
+    cursor: grabbing;
+}
+
+.card-back.dragging {
+    z-index: 1000;
+    transform: scale(1.1);
+    opacity: 0.8;
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.6);
+    transition: none;
+    pointer-events: none;
+}
+
+.card-back:hover:not(.dragging) {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+    border-color: #ffff00;
+    z-index: 10;
+}
+
+/* 放置区域样式 */
+.card-drop-zones {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+    order: 0; /* 放在卡堆上面 */
+}
+
+.drop-zone {
+    width: var(--drop-zone-width);
+    height: var(--drop-zone-height);
+    border: 3px dashed rgba(255, 215, 0, 0.5);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all var(--transition-fast) ease;
+    backdrop-filter: blur(5px);
+}
+
+.drop-zone.drag-over {
+    border-color: var(--primary-color);
+    background: rgba(255, 215, 0, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.drop-zone.filled {
+    border-color: #4caf50; /* 使用具体颜色值代替未使用的变量 */
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.drop-zone-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.drop-zone-placeholder {
+    font-size: 0.8rem;
+    color: rgba(255, 215, 0, 0.7);
+    text-align: center;
+    line-height: 1.3;
+    opacity: 0.8;
+}
+
+/* 放置后的卡牌样式 */
+.dropped-card-base {
+    width: var(--card-width-large);
+    height: var(--card-height-large);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast) ease;
+}
+
+.dropped-card {
+    background-image: url('../images/卡牌背面.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid var(--primary-color);
+}
+
+.dropped-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* 正面卡片样式 */
+.dropped-card-face {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border: 3px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-card);
+}
+
+.card-face-content {
+    text-align: center;
+    padding: var(--spacing-sm);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fff, #f0f8ff);
+}
+
+.card-face-content .card-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-card-title);
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-face-content .card-orientation {
+    font-size: 0.7rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-face-content .card-symbol {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    animation: symbolGlow 2s ease-in-out infinite alternate;
+}
+
+.dropped-card-face:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+    border-color: #ffff00;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 12px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: var(--border-radius-large);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #ffb347);
+    color: var(--text-card);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* 结果区域样式 */
+.result-section {
+    animation: fadeIn var(--transition-fast) ease-out;
+}
+
+.result-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.selected-cards {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.card-position {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+}
+
+.card-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-card-title);
+}
+
+.card-orientation {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.card-meaning {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-description {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+.selected-card-image {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-fast) ease;
+}
+
+.selected-card-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.selected-card-container {
+    margin: 15px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.reading-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.reading-content h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.result-buttons {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* 加载指示器样式 */
+.loading-indicator {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity var(--transition-fast) ease;
+}
+
+.loading-indicator.loading-active {
+    display: flex;
+    opacity: 1;
+}
+
+.loading-content {
+    text-align: center;
+    padding: 40px;
+    background: rgba(26, 26, 46, 0.9);
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    max-width: 300px;
+    width: 80%;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+.loading-message {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* 错误提示样式 */
+.error-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 20, 60, 0.9);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* 动画定义 */
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+            0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes symbolGlow {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    }
+    100% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+    }
+}
+
+@keyframes cardReveal {
+    0% {
+        opacity: 0;
+        transform: rotateY(180deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 逆位卡片样式 */
+.card-face-content.reversed {
+    transform: rotate(180deg);
+    border: 2px solid #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.selected-card-image.reversed {
+    transform: rotate(180deg);
+    border: 2px solid #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* 逆位卡片的文字样式 */
+.card-face-content.reversed .card-name {
+    color: #e74c3c;
+}
+
+.selected-card-image.reversed .card-name {
+    color: #e74c3c;
+}
+
+.selected-card-image.reversed .card-orientation {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 悬停效果 - 逆位卡片 */
+.card-face-content.reversed:hover {
+    border-color: #c0392b;
+    background-color: rgba(231, 76, 60, 0.2);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    transform: rotate(180deg) translateY(-5px);
+}
+
+.selected-card-image.reversed:hover {
+    border-color: #c0392b;
+    background-color: rgba(231, 76, 60, 0.2);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    transform: rotate(180deg) translateY(-5px);
+}

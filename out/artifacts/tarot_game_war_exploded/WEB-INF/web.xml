@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Tarot Card Divination Game</display-name>
+    <description>
+        一个基于Web的塔罗牌解惑游戏，提供三张牌占卜功能，
+        包括时间流、身心灵、情况分析等多种牌阵类型。
+    </description>
+
+    <!-- 应用欢迎页面 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
+
+    <!-- 应用初始化监听器 -->
+    <listener>
+        <listener-class>tarot.listener.GameInitializationListener</listener-class>
+    </listener>
+
+    <!-- 塔罗牌游戏控制器 Servlet 配置 -->
+    <servlet>
+        <servlet-name>TarotGameController</servlet-name>
+        <servlet-class>tarot.controller.TarotGameController</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TarotGameController</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- 会话配置 -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
+    </session-config>
+
+
+
+    <!-- MIME类型配置 -->
+    <mime-mapping>
+        <extension>json</extension>
+        <mime-type>application/json</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>js</extension>
+        <mime-type>application/javascript</mime-type>
+    </mime-mapping>
+
+    <!-- 安全配置 -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>API Resources</web-resource-name>
+            <url-pattern>/api/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>OPTIONS</http-method>
+        </web-resource-collection>
+        <!-- 允许所有用户访问 -->
+    </security-constraint>
+
+</web-app>
