@@ -212,7 +212,9 @@
             }
 
             // 使用后端API获取塔罗牌数据
-            const response = await fetchWithCancel('./api/cards');
+            // 获取当前应用的上下文路径
+            const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1)) || '';
+            const response = await fetchWithCancel(`${contextPath}/api/cards`);
 
             if (response.ok) {
                 const data = await response.json();
